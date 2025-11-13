@@ -1,0 +1,401 @@
+/* Jupyter Clone Styles - Matching Jupyter Notebook Classic Interface */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+}
+
+code {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.jupyter-app {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* Header */
+.jupyter-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  gap: 16px;
+}
+
+.jupyter-logo {
+  display: flex;
+  align-items: center;
+}
+
+.notebook-name {
+  flex: 1;
+}
+
+.notebook-name-input {
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+.notebook-name-input:focus {
+  background: #fff;
+  border: 1px solid #66afe9;
+  border-radius: 2px;
+}
+
+.kernel-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+.kernel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+
+.kernel-indicator.idle {
+  background-color: #5cb85c;
+}
+
+.kernel-indicator.busy {
+  background-color: #f0ad4e;
+}
+
+.kernel-indicator.starting {
+  background-color: #999;
+}
+
+/* Toolbar */
+.notebook-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e5e5e5;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.toolbar-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.toolbar-button:hover {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.toolbar-button:active {
+  background-color: #d4d4d4;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #e5e5e5;
+  margin: 0 4px;
+}
+
+.toolbar-help {
+  margin-left: auto;
+  font-size: 11px;
+  color: #666;
+}
+
+.keyboard-hint {
+  font-style: italic;
+}
+
+/* Notebook Container */
+.notebook-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Cell Styles */
+.cell {
+  margin-bottom: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  position: relative;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.cell:hover {
+  border-color: #cfcfcf;
+}
+
+.cell.selected {
+  border-color: #66afe9;
+  box-shadow: 0 0 0 2px rgba(102, 175, 233, 0.1);
+}
+
+.cell-toolbar {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #f9f9f9;
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  padding: 2px;
+  z-index: 10;
+}
+
+.cell:hover .cell-toolbar,
+.cell.selected .cell-toolbar {
+  display: block;
+}
+
+.cell-actions {
+  display: flex;
+  gap: 2px;
+}
+
+.cell-button {
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.cell-button:hover {
+  background-color: #e6e6e6;
+}
+
+.cell-button.delete:hover {
+  background-color: #d9534f;
+  color: white;
+}
+
+/* Code Cell */
+.code-cell {
+  background-color: #fff;
+}
+
+.cell-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-input-area {
+  display: flex;
+  min-height: 42px;
+}
+
+.cell-prompt {
+  width: 80px;
+  padding: 8px;
+  color: #303f9f;
+  font-family: "Monaco", "Menlo", monospace;
+  font-size: 9pt;
+  text-align: right;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.cell-input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: none;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  min-height: 42px;
+}
+
+.cell-input:focus {
+  background-color: #fff;
+}
+
+/* Output Area */
+.cell-output-area {
+  display: flex;
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+
+.output-prompt {
+  width: 80px;
+  padding: 8px;
+  color: #d84315;
+  font-family: "Monaco", "Menlo", monospace;
+  font-size: 9pt;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cell-output {
+  flex: 1;
+  padding: 8px;
+}
+
+.output {
+  margin-bottom: 8px;
+}
+
+.output:last-child {
+  margin-bottom: 0;
+}
+
+.output-text {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  margin: 0;
+  color: #000;
+}
+
+.output-result {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  margin: 0;
+  color: #000;
+}
+
+.output-error {
+  color: #a94442;
+  background-color: #f2dede;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.error-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.traceback {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  font-size: 12px;
+  white-space: pre;
+  margin: 4px 0 0 0;
+  color: #a94442;
+}
+
+/* Markdown Cell */
+.markdown-cell {
+  background-color: #fff;
+}
+
+.markdown-view {
+  padding: 8px 80px 8px 88px;
+  cursor: text;
+  min-height: 42px;
+}
+
+.markdown-view:hover {
+  background-color: #f9f9f9;
+}
+
+.empty-markdown {
+  color: #999;
+  font-style: italic;
+}
+
+.markdown-view :global(h1) {
+  font-size: 2em;
+  margin: 0.67em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.markdown-view :global(h2) {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-view :global(h3) {
+  font-size: 1.17em;
+  margin: 0.83em 0;
+}
+
+.markdown-view :global(p) {
+  margin: 0.5em 0;
+}
+
+.markdown-view :global(li) {
+  margin-left: 20px;
+}
+
+.markdown-input {
+  width: 100%;
+  padding: 8px 80px 8px 88px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 42px;
+  background-color: #f7f7f7;
+}
+
+.markdown-input:focus {
+  background-color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
